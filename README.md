@@ -126,7 +126,7 @@ module.exports = {
 * Log into your account upon opening
 * Click on server at left, login again
 * Create new database under PostgreSQL 12
-<img src="https://i.ibb.co/P64Fg3n/pgadmin1.png" alt="pgadmin database creation" border="0"/>
+<img src="https://i.ibb.co/P64Fg3n/pgadmin1.png" alt="pgadmin database creation" border="0"/></br>
 * Name your database and click 'save' at bottom right
 
 ## 5. Make Connection with Database
