@@ -1,4 +1,4 @@
-# Setting up a local development PostgreSQL database with pgAdmin4, Node.js, Express, and Knex #
+# Setting Up a Local Development PostgreSQL Database with pgAdmin4, Node.js, Express, and Knex #
 
 ### 1. Initialize Repo
 * Create a Remote repository on Github, initialize with a .gitignore and readme.md
@@ -11,7 +11,7 @@
   
 ## 2. Setup Server
 * Create a 'server.js' file inside an 'API' folder
-```
+```javascript
 const server = express();
 
 server.use(express.json());
@@ -25,7 +25,7 @@ server.get("/", (req, res) => {
 module.exports = server;
 ```
 * Create an 'index.js' file at root
-```
+```javascript
 // we'll create the .env later
 require("dotenv").config();
 
@@ -35,7 +35,7 @@ const port = process.env.PORT || 5000;
 server.listen(port, () => console.log(`\n** server up on port ${port} **\n`));
 ```
 * Create your routes, such as 'auth-router.js' (this will depend on what information you need from your database)
-```
+```javascript
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -65,7 +65,7 @@ router.post("/register", validateUserContent, (req, res) => {
 module.exports = router;
 ```
 * Create your database model functions, such as 'users-model.js'
-```
+```javascript
 const db = require("../data/dbConfig.js");
 
 module.exports = {
@@ -84,7 +84,7 @@ async function add(user) {
 * To create migrations execute `$ npx knex migrate:make migration_name` in terminal
 * To create seeds execute `$ npx knex seed:make seed_name` in terminal
 * In your 'knexfile.js' file copy and paste this:
-```
+```javascript
 require("dotenv").config();
 
 module.exports = {
@@ -131,7 +131,7 @@ module.exports = {
 
 ## 5. Make Connection with Database
 * Inside your 'data' folder, create a file named 'dbConfig.js'
-```
+```javascript
 const knex = require("knex");
 const config = require("../knexfile.js");
 
